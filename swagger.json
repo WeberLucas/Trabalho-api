@@ -1,0 +1,131 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Banco (REST)",
+    "version": "1.0.0",
+    "description": "API REST didática para o trabalho - autenticação JWT e transferência de valores"
+  },
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "Fazer login e obter token",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": { "type": "string" },
+                  "password": { "type": "string" }
+                },
+                "required": ["username", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Não autorizado" }
+        }
+      }
+    },
+    "/usuarios": {
+      "get": {
+        "summary": "Listar usuários (protegido)",
+        "responses": {
+          "200": { "description": "Lista" },
+          "401": {
+            "description": "Não autorizado - token não fornecido ou inválido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "mensagem": { "type": "string" } }
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "bearerAuth": [] }]
+      },
+      "post": {
+        "summary": "Criar usuário (protegido)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": { "type": "string" },
+                  "password": { "type": "string" },
+                  "saldo": { "type": "number" }
+                },
+                "required": ["username", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Criado" },
+          "401": { "description": "Não autorizado" }
+        },
+        "security": [{ "bearerAuth": [] }]
+      }
+    },
+    "/transferir": {
+      "post": {
+        "summary": "Transferir valor (protegido)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "origem": { "type": "string" },
+                  "destino": { "type": "string" },
+                  "valor": { "type": "number" }
+                },
+                "required": ["destino", "valor"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "origem": { "type": "string" },
+                    "destino": { "type": "string" },
+                    "saldoOrigem": { "type": "number" },
+                    "saldoDestino": { "type": "number" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad request" },
+          "404": { "description": "Usuário não encontrado" },
+          "401": {
+            "description": "Não autorizado - token não fornecido ou inválido",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "properties": { "mensagem": { "type": "string" } } }
+              }
+            }
+          }
+        },
+        "security": [{ "bearerAuth": [] }]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": { "bearerAuth": { "type": "http", "scheme": "bearer", "bearerFormat": "JWT" } }
+  }
+}

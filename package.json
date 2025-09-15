@@ -1,0 +1,27 @@
+{
+  "name": "trabalho-10pts-api",
+  "version": "1.0.0",
+  "description": "API REST e GraphQL com autenticação, transferência e testes automatizados.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha rest/*.test.js graphql/*.test.js src/*.test.js",
+    "test:rest": "mocha rest/*.test.js",
+    "test:graphql": "mocha graphql/*.test.js",
+    "test:unit": "mocha src/*.test.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.11.0",
+    "@apollo/server": "^4.2.0",
+    "swagger-ui-express": "^4.6.3",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "sinon": "^17.0.1",
+    "supertest": "^6.3.3"
+  }
+}
