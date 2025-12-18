@@ -249,17 +249,16 @@ group('Testes com Dados Faker', function () {
 Para gerar relatório HTML dos testes:
 
 ```powershell
-# Instalar k6-reporter (opcional)
-npm install -g k6-reporter
+# 1. Executar teste e gerar JSON
+k6 run --out json=results.json test/k6/performance.test.js
 
-# Executar teste e gerar JSON
-k6 run --out json=test/k6/results.json test/k6/performance.test.js
-
-# Gerar HTML
-k6-reporter test/k6/results.json --output test/k6/report.html
+# 2. Gerar HTML usando o script
+node generateReport.js
 ```
 
-Ou usar K6 Cloud:
+O relatório será gerado em `report.html` no diretório raiz do projeto.
+
+**Alternativa - K6 Cloud:**
 ```powershell
 k6 run --out cloud test/k6/performance.test.js
 ```
