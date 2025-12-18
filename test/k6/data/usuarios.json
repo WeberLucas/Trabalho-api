@@ -1,0 +1,29 @@
+[
+  {
+    "username": "usuario1",
+    "password": "senha123",
+    "saldo": 500
+  },
+  {
+    "username": "usuario2",
+    "password": "senha456",
+    "saldo": 1000
+  },
+  {
+    "username": "usuario3",
+    "password": "senha789",
+    "saldo": 750
+  },
+  {
+    "username": "usuario4",
+    "password": "senha012",
+    "saldo": 250
+  },
+  {
+    "username": "usuario5",
+    "password": "senha345",
+    "saldo": 1500
+  }
+]
+
+

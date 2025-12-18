@@ -7,7 +7,9 @@
     "test": "mocha rest/*.test.js graphql/*.test.js src/*.test.js",
     "test:rest": "mocha rest/*.test.js",
     "test:graphql": "mocha graphql/*.test.js",
-    "test:unit": "mocha src/*.test.js"
+    "test:unit": "mocha src/*.test.js",
+    "test:k6": "k6 run test/k6/performance.test.js",
+    "test:k6:html": "k6 run --out json=test/k6/results.json test/k6/performance.test.js && echo Relatório JSON gerado em test/k6/results.json. Use k6-reporter para gerar HTML."
   },
   "dependencies": {
     "body-parser": "^1.20.2",
