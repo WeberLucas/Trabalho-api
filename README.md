@@ -327,23 +327,6 @@ Todos os endpoints protegidos requerem header: `Authorization: Bearer <token>`
 
 ---
 
-## 🎓 Conceitos Demonstrados no Código
-
-**Importante:** Este README fornece uma visão geral. Para ver **exatamente onde cada conceito foi aplicado no código**, com trechos completos e explicações detalhadas, consulte `test/k6/README.md`, que documenta:
-
-- ✅ Localização exata de cada conceito (arquivo e linhas)
-- ✅ Trechos de código completos
-- ✅ Explicações de como o conceito foi aplicado
-- ✅ Exemplos de uso
-- ✅ Tabela resumo completa
-
----
-
-## 📦 Entregáveis
-
-✅ **Repositório no Github** com:
-1. Arquitetura dos testes em `test/k6/`
-2. `README.md` (este arquivo) explicando onde cada conceito foi aplicado
 
 ✅ **Relatório de Execução** pode ser gerado em HTML usando:
 ```powershell
