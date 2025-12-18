@@ -330,7 +330,9 @@ Todos os endpoints protegidos requerem header: `Authorization: Bearer <token>`
 ✅ **Relatório de Execução** pode ser gerado em HTML usando:
 ```powershell
 k6 run --out json=results.json test/k6/performance.test.js
-k6-reporter results.json --output report.html
+node generateReport.js
 ```
+
+O relatório `report.html` está incluído no repositório como exemplo.
 
 
